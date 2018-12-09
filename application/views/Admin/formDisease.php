@@ -8,7 +8,14 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Diseases Name</span>
             </div>
-            <input type="text" class="form-control" id="dname" name="dname" placeholder="Varun Bhandia" value="<?php if($action == 'update'){echo $row[0]->dname;} ?>">
+            <input type="text" class="form-control" id="dname" name="dname" placeholder="Ashtama" value="<?php if($action == 'update'){echo $row[0]->dname;} ?>">
+        </div>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Diseases Link</span>
+            </div>
+            <input type="text" class="form-control" id="dlink" name="dlink" placeholder="www.example.com" value="<?php if($action == 'update'){echo $row[0]->dlink;} ?>">
         </div>
 
         <?php if($action == 'update'){ ?> 

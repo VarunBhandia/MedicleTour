@@ -19,13 +19,14 @@
         </thead>
         <tbody>
             <?php
-            $count_doc =  count($diseases);
-            for($i=0; $i<$count_doc; $i++)
+            $count_d =  count($diseases);
+            for($i=0; $i<$count_d; $i++)
             {   
             ?>
             <tr>
                 <td><?php echo $i; ?></td>  
                 <td><?php echo $diseases[$i]->dname; ?> </td>
+                <td><?php echo $diseases[$i]->dlink; ?> </td>
 
                 <td>
                     <a href="<?php echo base_url(); ?>Admin/editDisease/<?php echo $diseases[$i]->did; ?>" class="btn btn-success">Edit

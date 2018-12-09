@@ -2,10 +2,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Doctor Records</h2>
+            <h2>Hospital Records</h2>
         </div>
         <div class="col-md-6">
-            <a href="<?php echo base_url(); ?>Admin/addDoctor/" class="btn btn-info" style="float: right;" >Add Doctor</a>
+            <a href="<?php echo base_url(); ?>Admin/addHospital/" class="btn btn-info" style="float: right;" >Add Hospital</a>
         </div>
     </div> 
     <br>
@@ -19,18 +19,18 @@
         </thead>
         <tbody>
             <?php
-            $count_doc =  count($doctors);
-            for($i=0; $i<$count_doc; $i++)
+            $count_hosp =  count($hospitals);
+            for($i=0; $i<$count_hosp; $i++)
             {   
             ?>
             <tr>
                 <td><?php echo $i; ?></td>  
-                <td><?php echo $doctors[$i]->docname; ?> </td>
+                <td><?php echo $hospitals[$i]->hname; ?> </td>
 
                 <td>
-                    <a href="<?php echo base_url(); ?>Admin/editDoctor/<?php echo $doctors[$i]->docid; ?>" class="btn btn-success">Edit
+                    <a href="<?php echo base_url(); ?>Admin/editHospital/<?php echo $hospitals[$i]->hid; ?>" class="btn btn-success">Edit
                     </a>
-                    <a onclick="return confirm('Do You Really Delete?');" href="<?php echo base_url(); ?>Admin/deleteDoctor/<?php echo $doctors[$i]->docid; ?>" class="btn btn-danger">Delete</a>
+                    <a onclick="return confirm('Do You Really Delete?');" href="<?php echo base_url(); ?>Admin/deleteHospital/<?php echo $hospitals[$i]->hid; ?>" class="btn btn-danger">Delete</a>
                 </td>   
             </tr>     
             <?php

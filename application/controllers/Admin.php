@@ -164,7 +164,7 @@ class Admin extends CI_Controller {
 
     public function editHospital($hid)
     {
-        $docid = $this->uri->segment(3);
+        $hid = $this->uri->segment(3);
         $model = $this->model;
         $data['action'] = "update";
         $data['controller'] = $this->controller;
@@ -176,8 +176,8 @@ class Admin extends CI_Controller {
     {
         $model = $this->model;
 
-        $docid = $this->input->post('hid');
-        $docname = $this->input->post('hname');
+        $hid = $this->input->post('hid');
+        $hname = $this->input->post('hname');
 
         $data = array(
             'hid'  => $hid,
@@ -228,8 +228,11 @@ class Admin extends CI_Controller {
         $model = $this->model;
 
         $dname = $this->input->post('dname');
+        $dlink = $this->input->post('dlink');
+        
         $data = array(
             'dname'  => $dname,
+            'dlink'  => $dlink,
         );
         $this->$model->insert($data,'diseases');
         redirect('Admin/disease');
@@ -251,10 +254,12 @@ class Admin extends CI_Controller {
 
         $did = $this->input->post('did');
         $dname = $this->input->post('dname');
-
+        $dlink = $this->input->post('dlink');
+        
         $data = array(
             'did'  => $did,
             'dname'  => $dname,
+            'dlink'  => $dlink,
         );
 
         $where = array('did'=>$did);
