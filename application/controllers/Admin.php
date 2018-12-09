@@ -126,6 +126,152 @@ class Admin extends CI_Controller {
         redirect('Admin/doctor');
     }
 
+    function hospital()
+    {  
+        $model = $this->model;
+        if($this->session->userdata('username') != '')  
+        {
+            $username = $this->session->userdata('username');
+            $data['hospitals'] = $this->$model->select(array(),'hospitals',array(),'');
+
+            $this->load->view("Admin/hospital",$data); 
+        }  
+        else  
+        {  
+            redirect(base_url() . 'Admin/login');  
+        }  
+    } 
+
+    public function addHospital()
+    {
+        $model = $this->model;
+        $data['action'] = "insert";
+        $data['controller'] = $this->controller;
+        $this->load->view('Admin/formHospital',$data);
+    }
+
+    public function insertHospital()
+    {
+        $model = $this->model;
+
+        $hname = $this->input->post('hname');
+        $data = array(
+            'hname'  => $hname,
+        );
+        $this->$model->insert($data,'hospitals');
+        redirect('Admin/hospital');
+    }
+
+    public function editHospital($hid)
+    {
+        $docid = $this->uri->segment(3);
+        $model = $this->model;
+        $data['action'] = "update";
+        $data['controller'] = $this->controller;
+        $data['row'] = $this->$model->select(array(),'hospitals',array('hid'=>$hid),'');
+        $this->load->view('Admin/formHospital',$data);
+    }
+
+    public function updateHospital()
+    {
+        $model = $this->model;
+
+        $docid = $this->input->post('hid');
+        $docname = $this->input->post('hname');
+
+        $data = array(
+            'hid'  => $hid,
+            'hname'  => $hname,
+        );
+
+        $where = array('hid'=>$hid);
+        $this->$model->update('hospitals',$data,$where);
+
+        redirect('Admin/hospital');
+    }
+
+    public function deleteHospital($hid)
+    {
+        $model = $this->model;
+        $condition = array('hid'=>$hid);
+        $this->$model->delete('hospitals',$condition);
+
+        redirect('Admin/hospital');
+    }
+
+    function disease()
+    {  
+        $model = $this->model;
+        if($this->session->userdata('username') != '')  
+        {
+            $username = $this->session->userdata('username');
+            $data['diseases'] = $this->$model->select(array(),'diseases',array(),'');
+
+            $this->load->view("Admin/disease",$data); 
+        }  
+        else  
+        {  
+            redirect(base_url() . 'Admin/login');  
+        }  
+    } 
+
+    public function addDisease()
+    {
+        $model = $this->model;
+        $data['action'] = "insert";
+        $data['controller'] = $this->controller;
+        $this->load->view('Admin/formDisease',$data);
+    }
+
+    public function insertDisease()
+    {
+        $model = $this->model;
+
+        $dname = $this->input->post('dname');
+        $data = array(
+            'dname'  => $dname,
+        );
+        $this->$model->insert($data,'diseases');
+        redirect('Admin/disease');
+    }
+
+    public function editDisease($did)
+    {
+        $did = $this->uri->segment(3);
+        $model = $this->model;
+        $data['action'] = "update";
+        $data['controller'] = $this->controller;
+        $data['row'] = $this->$model->select(array(),'diseases',array('did'=>$did),'');
+        $this->load->view('Admin/formDisease',$data);
+    }
+
+    public function updateDisease()
+    {
+        $model = $this->model;
+
+        $did = $this->input->post('did');
+        $dname = $this->input->post('dname');
+
+        $data = array(
+            'did'  => $did,
+            'dname'  => $dname,
+        );
+
+        $where = array('did'=>$did);
+        $this->$model->update('diseases',$data,$where);
+
+        redirect('Admin/disease');
+    }
+
+    public function deleteDisease($did)
+    {
+        $model = $this->model;
+        $condition = array('did'=>$did);
+        $this->$model->delete('diseases',$condition);
+
+        redirect('Admin/disease');
+    }
+
 
     function logout()  
     {  

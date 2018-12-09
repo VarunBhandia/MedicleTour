@@ -22,7 +22,7 @@ class Search extends CI_Controller
         $model = $this->model;
         $data['controller'] = $this->controller;
         $did = $this->input->post('did');
-        $data['disease_sp'] = $this->$model->select(array(),'disease',array('did'=>$did),'');
+        $data['disease_sp'] = $this->$model->select(array(),'diseases',array('did'=>$did),'');
         $this->load->view('Search/index',$data);
     }
 

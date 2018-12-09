@@ -34,13 +34,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>Admin/Doctors">Doctors</a>
+                        <a class="nav-link" href="<?php echo base_url();?>Admin/doctor">Doctors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>Hospitals">Hospitals</a>
+                        <a class="nav-link" href="<?php echo base_url();?>Admin/hospital">Hospitals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#">Diseases</a>
+                        <a class="nav-link " href="<?php echo base_url();?>Admin/disease">Diseases</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

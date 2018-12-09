@@ -21,7 +21,7 @@ class Home extends CI_Controller
     {
         $model = $this->model;
         $data['controller'] = $this->controller;
-        $data['diseases'] = $this->$model->select(array(),'disease',array(),'');
+        $data['diseases'] = $this->$model->select(array(),'diseases',array(),'');
         $data['countries'] = $this->$model->select(array(),'countries',array(),'');
         $this->load->view('Home/index',$data);
     }
