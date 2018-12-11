@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Medicle Tourism India</title>
+        <title>Hydro Grow Wiki</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,7 +26,7 @@
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="<?php echo base_url();?>">Medicle Tour</a>
+            <a class="navbar-brand" href="<?php echo base_url();?>">Admin Panel</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,13 +34,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>Admin/doctor">Doctors</a>
+                        <a class="nav-link" href="<?php echo base_url();?>Nutadmin">Nutrients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>Admin/hospital">Hospitals</a>
+                        <a class="nav-link" href="<?php echo base_url();?>Orgnutadmin">Organic Nutrients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url();?>Admin/disease">Diseases</a>
+                        <a class="nav-link " href="<?php echo base_url();?>Bionutadmin">Biological Nutrients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<?php echo base_url();?>Bionutadmin">Supplements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<?php echo base_url();?>Bionutadmin">Control</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="<?php echo base_url();?>Bionutadmin">Maintenance</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller
+class Nutrients extends CI_Controller
 {
-    public $table = 'disease';
-    public $controller = 'Concrete_calculator';
-    public $message = 'Calculators';
-    public $primary_id = "id";
+    public $table = 'nutrients';
+    public $controller = 'Nutrients';
+    public $message = 'Nutrients';
+    public $primary_id = "nid";
     public $model;
 
     public function __construct()
@@ -21,7 +21,8 @@ class Home extends CI_Controller
     {
         $model = $this->model;
         $data['controller'] = $this->controller;
-        $this->load->view('Home/index',$data);
+        $data['nutrients'] = $this->$model->select(array(),'nutrients',array(),'');
+        $this->load->view('Nutrients/index',$data);
     }
 
 }
