@@ -29,7 +29,7 @@
                         <img src="<?php echo base_url(); ?>assets/img/img-01.png" alt="IMG">
                     </div>  
                     <form method="post" action="<?php echo base_url(); ?>Admin/login_validation" class="login100-form validate-form">  <span class="login100-form-title">
-                        Medicle Tour Login
+                        Hydro Wiki Login
                         </span>
                         <div class="wrap-input100 validate-input">  
                             <input type="text" name="username" class="input100" placeholder="Username" /> 

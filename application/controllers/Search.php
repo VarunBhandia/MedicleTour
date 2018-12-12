@@ -3,10 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Search extends CI_Controller
 {
-    public $table = 'slabs';
-    public $controller = 'Concrete_calculator';
-    public $message = 'Calculators';
-    public $primary_id = "id";
+    public $table = '';
+    public $controller = 'Search';
+    public $message = 'Result';
     public $model;
 
     public function __construct()
@@ -21,8 +20,12 @@ class Search extends CI_Controller
     {
         $model = $this->model;
         $data['controller'] = $this->controller;
-        $did = $this->input->post('did');
-        $data['disease_sp'] = $this->$model->select(array(),'diseases',array('did'=>$did),'');
+        $data['keyword'] = $this->input->get('q');
+        
+        
+        $data['controller_n'] = 'Nutrients';
+        $data['result_nutrients'] = $this->$model->select_like('nutrients','nkeywords',$data['keyword']);
+        
         $this->load->view('Search/index',$data);
     }
 

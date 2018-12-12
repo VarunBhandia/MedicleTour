@@ -36,76 +36,148 @@ class Nutadmin extends CI_Controller
 
     public function add()
     {
-        $model = $this->model;
-        $data['action'] = "insert";
-        $data['controller'] = $this->controller;
+        if($this->session->userdata('username') != '')  
+        {
+            $model = $this->model;
+            $data['action'] = "insert";
+            $data['controller'] = $this->controller;
 
-        $this->load->view('Admin/Nutrients/form',$data);
+            $this->load->view('Admin/Nutrients/form',$data);
+        }  
+        else  
+        {  
+            redirect(base_url() . 'Admin/login');  
+        }  
     }
 
     public function insert()
     {
-        $model = $this->model;
-
-        $nname = $this->input->post('nname');
-        $config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        
-        $this->load->library('upload', $config);        
-        if ( $this->upload->do_upload('nimg'))
+        if($this->session->userdata('username') != '')  
         {
-            $img_data = $this->upload->data();
-            $image_path = base_url("uploads/".$img_data['raw_name'].$img_data['file_ext']);
-            
-        }
-        
-        $data = array(
-            'nname'  => $nname,
-            'nimg' => $image_path,
-        );
 
-//        echo '<pre>';
-//        print_r($data);
-//        echo '</pre>';
-        
-        $this->$model->insert($data,'nutrients');
-        redirect('Nutadmin');
+            $model = $this->model;
+
+            $nname = $this->input->post('nname');
+            $nfeedlink = $this->input->post('nfeedlink');
+            $nserlink = $this->input->post('nserlink');
+            $ndesc = $this->input->post('ndesc');
+            $nkeywords = $this->input->post('nkeywords');
+
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 100;
+
+            $this->load->library('upload', $config);        
+            if ( $this->upload->do_upload('nimg'))
+            {
+                $img_data = $this->upload->data();
+                $image_path = base_url("uploads/".$img_data['raw_name'].$img_data['file_ext']);
+
+            }
+
+            $data = array(
+                'nname'  => $nname,
+                'nimg' => $image_path,
+                'nfeedlink' => $nfeedlink,
+                'nserlink' => $nserlink,
+                'ndesc' => $ndesc,
+                'nkeywords' => $nkeywords,
+            );
+
+            //        echo '<pre>';
+            //        print_r($data);
+            //        echo '</pre>';
+
+            $this->$model->insert($data,'nutrients');
+            redirect('Nutadmin');
+        }  
+        else  
+        {  
+            redirect(base_url() . 'Admin/login');  
+        }  
+
     }
 
     public function edit($nid)
     {
-        $model = $this->model;
-        $data['action'] = "update";
-        $data['controller'] = $this->controller;
-        $data['row'] = $this->$model->select(array(),'nutrients',array('nid'=>$nid),'');
-        $this->load->view('Admin/Nutrients/form',$data);
-    }
+        if($this->session->userdata('username') != '')  
+        {
 
+            $model = $this->model;
+            $data['action'] = "update";
+            $data['controller'] = $this->controller;
+            $data['row'] = $this->$model->select(array(),'nutrients',array('nid'=>$nid),'');
+            $this->load->view('Admin/Nutrients/form',$data);
+        }
+        else  
+        {  
+            redirect(base_url() . 'Admin/login');  
+        }  
+    }
     public function update()
     {
-        $model = $this->model;
+        if($this->session->userdata('username') != '')  
+        {
 
-        $nid = $this->input->post('nid');
-        $nname = $this->input->post('nname');
+            $model = $this->model;
 
-        $data = array(
-            'nid'  => $nid,
-            'nname'  => $nname,
-        );
-        $where = array('nid'=>$nid);
-        $this->$model->update('nutrients',$data,$where);
+            $nid = $this->input->post('nid');
+            $nname = $this->input->post('nname');
+            $nfeedlink = $this->input->post('nfeedlink');
+            $nserlink = $this->input->post('nserlink');
+            $ndesc = $this->input->post('ndesc');
+            $nkeywords = $this->input->post('nkeywords');
 
-        redirect('Nutadmin');
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 100;
+
+            $this->load->library('upload', $config);        
+            if ( $this->upload->do_upload('nimg'))
+            {
+                $img_data = $this->upload->data();
+                $image_path = base_url("uploads/".$img_data['raw_name'].$img_data['file_ext']);
+
+            }
+
+            $data = array(
+                'nid'  => $nid,
+                'nname'  => $nname,
+                'nimg' => $image_path,
+                'nfeedlink' => $nfeedlink,
+                'nserlink' => $nserlink,
+                'ndesc' => $ndesc,
+                'nkeywords' => $nkeywords,
+            );
+
+            $where = array('nid'=>$nid);
+            $this->$model->update('nutrients',$data,$where);
+
+            redirect('Nutadmin');
+        }  
+        else  
+        {  
+            redirect(base_url() . 'Admin/login');  
+        }  
+
     }
 
     public function delete($nid)
     {
-        $model = $this->model;
-        $condition = array('nid'=>$nid);
-        $this->$model->delete('nutrients',$condition);
+        if($this->session->userdata('username') != '')  
+        {
 
-        redirect('Nutadmin');
+            $model = $this->model;
+            $condition = array('nid'=>$nid);
+            $this->$model->delete('nutrients',$condition);
+
+            redirect('Nutadmin');
+        }  
+        else  
+        {  
+            redirect(base_url() . 'Admin/login');  
+        }  
+
     }
 }
 ?>

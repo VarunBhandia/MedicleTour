@@ -25,5 +25,14 @@ class Nutrients extends CI_Controller
         $this->load->view('Nutrients/index',$data);
     }
 
+    public function product()
+    {
+        $model = $this->model;
+        $data['controller'] = $this->controller;
+        $nid = $this->input->get('nid');
+        $data['product'] = $this->$model->select(array(),'nutrients',array('nid'=>$nid),'');
+        $this->load->view('Nutrients/product',$data);
+    }
+
 }
 ?>

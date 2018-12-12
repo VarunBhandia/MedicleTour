@@ -15,7 +15,7 @@ class Admin extends CI_Controller {
         date_default_timezone_set('Asia/Kolkata');
     }
 
-    function index()  
+    function login()  
     {  
         $this->load->view("login");  
     }  
@@ -37,6 +37,7 @@ class Admin extends CI_Controller {
                 $session_data = array(  
                     'username'     =>     $username  
                 );  
+                
                 $this->session->set_userdata($session_data);  
                 redirect(base_url() . 'Nutadmin');  
             }  
