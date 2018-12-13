@@ -1,0 +1,29 @@
+html{
+    overflow-x: hidden;
+}
+
+.searchBar{
+    padding-top: 15%;
+}
+
+.banner {
+    /* The image used */
+    background-image: url('http://localhost/Medicle/assets/img/banner.jpg');
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
