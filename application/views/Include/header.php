@@ -56,8 +56,8 @@
                                 <a class="dropdown-item" href="<?php echo base_url();?>Orgnutrients">Organic Nutrients</a>
                                 <a class="dropdown-item" href="<?php echo base_url();?>Bionutrients">Biological Nutrients</a>
                                 <a class="dropdown-item" href="<?php echo base_url();?>Supplements">Supplements</a>
-                                <a class="dropdown-item" href="<?php echo base_url();?>Control">Control</a>
-                                <a class="dropdown-item" href="<?php echo base_url();?>Maintenance">Maintenance</a>
+                                <a class="dropdown-item" href="<?php echo base_url();?>Controls">Control</a>
+                                <a class="dropdown-item" href="<?php echo base_url();?>Maintenances">Maintenance</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

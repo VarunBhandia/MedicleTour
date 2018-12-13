@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Nutrients extends CI_Controller
+class Bionutrients extends CI_Controller
 {
-    public $table = 'nutrients';
-    public $controller = 'Nutrients';
-    public $message = 'Nutrients';
-    public $primary_id = "nid";
+    public $table = 'bionutrients';
+    public $controller = 'Bionutrients';
+    public $message = 'Bionutrients';
+    public $primary_id = "bnid";
     public $model;
 
     public function __construct()
@@ -21,8 +21,17 @@ class Nutrients extends CI_Controller
     {
         $model = $this->model;
         $data['controller'] = $this->controller;
-        $data['nutrients'] = $this->$model->select(array(),'nutrients',array(),'');
-        $this->load->view('Nutrients/index',$data);
+        $data['bionutrients'] = $this->$model->select(array(),'bionutrients',array(),'');
+        $this->load->view('Bionutrients/index',$data);
+    }
+
+    public function product()
+    {
+        $model = $this->model;
+        $data['controller'] = $this->controller;
+        $bnid = $this->input->get('bnid');
+        $data['product'] = $this->$model->select(array(),'bionutrients',array('bnid'=>$bnid),'');
+        $this->load->view('Bionutrients/product',$data);
     }
 
 }

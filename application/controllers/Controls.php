@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Orgnutrients extends CI_Controller
+class Controls extends CI_Controller
 {
-    public $table = 'orgnutrients';
-    public $controller = 'Orgnutrients';
-    public $message = 'Orgnutrients';
-    public $primary_id = "onid";
+    public $table = 'controls';
+    public $controller = 'Controls';
+    public $message = 'Controls';
+    public $primary_id = "cid";
     public $model;
 
     public function __construct()
@@ -21,17 +21,17 @@ class Orgnutrients extends CI_Controller
     {
         $model = $this->model;
         $data['controller'] = $this->controller;
-        $data['orgnutrients'] = $this->$model->select(array(),'orgnutrients',array(),'');
-        $this->load->view('Orgnutrients/index',$data);
+        $data['controls'] = $this->$model->select(array(),'controls',array(),'');
+        $this->load->view('Controls/index',$data);
     }
 
     public function product()
     {
         $model = $this->model;
         $data['controller'] = $this->controller;
-        $onid = $this->input->get('onid');
-        $data['product'] = $this->$model->select(array(),'orgnutrients',array('onid'=>$onid),'');
-        $this->load->view('Orgnutrients/product',$data);
+        $cid = $this->input->get('cid');
+        $data['product'] = $this->$model->select(array(),'controls',array('cid'=>$cid),'');
+        $this->load->view('Controls/product',$data);
     }
 
 }
