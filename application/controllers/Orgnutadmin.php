@@ -63,7 +63,7 @@ class Orgnutadmin extends CI_Controller
             $ondesc = $this->input->post('ondesc');
             $onkeywords = $this->input->post('onkeywords');
 
-            $config['upload_path']          = './uploads/orgnutrients/s';
+            $config['upload_path']          = './uploads/orgnutrients/';
             $config['allowed_types']        = 'gif|jpg|png';
             $config['max_size']             = 100;
 

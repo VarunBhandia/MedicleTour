@@ -8,28 +8,28 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Product Name</span>
             </div>
-            <input type="text" class="form-control" id="nname" name="nname" placeholder="Name of Nutrient" value="<?php if($action == 'update'){echo $row[0]->nname;} ?>" required>
+            <input type="text" class="form-control" id="onname" name="onname" placeholder="Name of Organic Nutrient" value="<?php if($action == 'update'){echo $row[0]->onname;} ?>" required>
         </div>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Product Image</span>
             </div>
-            <input type="file" class="form-control" id="nimg" name="nimg" placeholder="Name of Nutrient" value="<?php if($action == 'update'){echo $row[0]->nimg; } ?>"  required> 
+            <input type="file" class="form-control" id="onimg" name="onimg" placeholder="Name of Organic Nutrient" value="<?php if($action == 'update'){echo $row[0]->onimg; } ?>"  required> 
         </div>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Feedchart Link</span>
             </div>
-            <input type="text" class="form-control" id="nfeedlink" name="nfeedlink" placeholder="www.example.com" value="<?php if($action == 'update'){echo $row[0]->nfeedlink;} ?>" required>
+            <input type="text" class="form-control" id="onfeedlink" name="onfeedlink" placeholder="www.example.com" value="<?php if($action == 'update'){echo $row[0]->onfeedlink;} ?>" required>
         </div>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Services Link</span>
             </div>
-            <input type="text" class="form-control" id="nserlink" name="nserlink" placeholder="www.example.com" value="<?php if($action == 'update'){echo $row[0]->nserlink;} ?>" required>
+            <input type="text" class="form-control" id="onserlink" name="onserlink" placeholder="www.example.com" value="<?php if($action == 'update'){echo $row[0]->onserlink;} ?>" required>
         </div>
         <br>
         <div class="input-group">
@@ -37,7 +37,7 @@
                 <span class="input-group-text">Product Description</span>
             </div>
             <textarea class="form-control" aria-label="With textarea" name="ndesc" required>
-                <?php if($action == 'update'){echo $row[0]->ndesc;} ?>
+                <?php if($action == 'update'){echo $row[0]->ondesc;} ?>
             </textarea>
         </div>
         <br>
@@ -45,10 +45,10 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Keywords</span>
             </div>
-            <input type="text" class="form-control" id="nkeywords" name="nkeywords" placeholder="Enter Keywords" value="<?php if($action == 'update'){echo $row[0]->nkeywords;} ?>" required>
+            <input type="text" class="form-control" id="onkeywords" name="onkeywords" placeholder="Enter Keywords" value="<?php if($action == 'update'){echo $row[0]->onkeywords;} ?>" required>
         </div>
         <?php if($action == 'update'){ ?> 
-        <input type="hidden" value="<?php echo $row[0]->nid; ?>" name="nid" id="nid">
+        <input type="hidden" value="<?php echo $row[0]->onid; ?>" name="onid" id="onid">
         <?php } ?>
         <br>
         <input type="submit" class="btn btn-primary mb-2" value="<?php if($action == 'update'){echo 'Update'; } else { echo 'Add';} ?>">

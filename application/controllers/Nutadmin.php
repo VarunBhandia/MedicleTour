@@ -63,7 +63,7 @@ class Nutadmin extends CI_Controller
             $ndesc = $this->input->post('ndesc');
             $nkeywords = $this->input->post('nkeywords');
 
-            $config['upload_path']          = './uploads/';
+            $config['upload_path']          = './uploads/nutrients/';
             $config['allowed_types']        = 'gif|jpg|png';
             $config['max_size']             = 100;
 
@@ -71,7 +71,7 @@ class Nutadmin extends CI_Controller
             if ( $this->upload->do_upload('nimg'))
             {
                 $img_data = $this->upload->data();
-                $image_path = base_url("uploads/".$img_data['raw_name'].$img_data['file_ext']);
+                $image_path = base_url("uploads/nutrients/".$img_data['raw_name'].$img_data['file_ext']);
 
             }
 
@@ -128,7 +128,7 @@ class Nutadmin extends CI_Controller
             $ndesc = $this->input->post('ndesc');
             $nkeywords = $this->input->post('nkeywords');
 
-            $config['upload_path']          = './uploads/';
+            $config['upload_path']          = './uploads/nutrients/';
             $config['allowed_types']        = 'gif|jpg|png';
             $config['max_size']             = 100;
 
@@ -136,7 +136,7 @@ class Nutadmin extends CI_Controller
             if ( $this->upload->do_upload('nimg'))
             {
                 $img_data = $this->upload->data();
-                $image_path = base_url("uploads/".$img_data['raw_name'].$img_data['file_ext']);
+                $image_path = base_url("uploads/nutrients/".$img_data['raw_name'].$img_data['file_ext']);
 
             }
 

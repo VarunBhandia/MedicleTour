@@ -2,10 +2,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>Nutrients Records</h2>
+            <h2>Organic Nutrients Records</h2>
         </div>
         <div class="col-md-6">
-            <a href="<?php echo base_url().$controller; ?>/add/" class="btn btn-info" style="float: right;" >Add Nutrient</a>
+            <a href="<?php echo base_url().$controller; ?>/add/" class="btn btn-info" style="float: right;" >Add organic Nutrient</a>
         </div>
     </div> 
     <br>
@@ -19,18 +19,18 @@
         </thead>
         <tbody>
             <?php
-            $count_nutrients =  count($nutrients);
-            for($i=0; $i<$count_nutrients; $i++)
+            $count_orgnutrients =  count($orgnutrients);
+            for($i=0; $i<$count_orgnutrients; $i++)
             {   
             ?>
             <tr>
                 <td><?php echo $i; ?></td>  
-                <td><?php echo $nutrients[$i]->nname; ?> </td>
+                <td><?php echo $orgnutrients[$i]->onname; ?> </td>
 
                 <td>
-                    <a href="<?php echo base_url().$controller.'/edit/'.$nutrients[$i]->nid; ?>" class="btn btn-success">Edit
+                    <a href="<?php echo base_url().$controller.'/edit/'.$orgnutrients[$i]->onid; ?>" class="btn btn-success">Edit
                     </a>
-                    <a onclick="return confirm('Do You Really Delete?');" href="<?php echo base_url().$controller.'/delete/'.$nutrients[$i]->nid; ?>" class="btn btn-danger">Delete</a>
+                    <a onclick="return confirm('Do You Really Delete?');" href="<?php echo base_url().$controller.'/delete/'.$orgnutrients[$i]->onid; ?>" class="btn btn-danger">Delete</a>
                 </td>   
             </tr>     
             <?php
