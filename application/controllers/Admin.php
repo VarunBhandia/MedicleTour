@@ -82,8 +82,40 @@ class Admin extends CI_Controller {
         $model = $this->model;
 
         $docname = $this->input->post('docname');
+        $docspec = $this->input->post('docspec');
+        $docdesig = $this->input->post('docdesig');
+        $dochosp = $this->input->post('dochosp');
+        $doccou = $this->input->post('doccou');
+        $docsd = $this->input->post('docsd');
+        $docld = $this->input->post('docld');
+        $docurl = $this->input->post('docurl');
+        $docmetatitle = $this->input->post('docmetatitle');
+        $docmetadesc = $this->input->post('docmetadesc');        
+        
+        $config['upload_path']          = './uploads/doctors/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+
+        $this->load->library('upload', $config);        
+        if ( $this->upload->do_upload('docimg'))
+        {
+            $img_data = $this->upload->data();
+            $image_path = base_url("uploads/doctors/".$img_data['raw_name'].$img_data['file_ext']);
+
+        }
+
         $data = array(
             'docname'  => $docname,
+            'docimg'  => $image_path,
+            'docspec'  => $docspec,
+            'docdesig'  => $docdesig,
+            'dochosp'  => $dochosp,
+            'doccou'  => $doccou,
+            'docsd'  => $docsd,
+            'docld'  => $docld,
+            'docurl'  => $docurl,
+            'docmetatitle'  => $docmetatitle,
+            'docmetadesc'  => $docmetadesc,
         );
         $this->$model->insert($data,'doctors');
         redirect('Admin/doctor');
@@ -105,10 +137,28 @@ class Admin extends CI_Controller {
 
         $docid = $this->input->post('docid');
         $docname = $this->input->post('docname');
+        $docspec = $this->input->post('docspec');
+        $docdesig = $this->input->post('docdesig');
+        $dochosp = $this->input->post('dochosp');
+        $doccou = $this->input->post('doccou');
+        $docsd = $this->input->post('docsd');
+        $docld = $this->input->post('docld');
+        $docurl = $this->input->post('docurl');
+        $docmetatitle = $this->input->post('docmetatitle');
+        $docmetadesc = $this->input->post('docmetadesc');
 
         $data = array(
             'docid'  => $docid,
             'docname'  => $docname,
+            'docspec'  => $docspec,
+            'docdesig'  => $docdesig,
+            'dochosp'  => $dochosp,
+            'doccou'  => $doccou,
+            'docsd'  => $docsd,
+            'docld'  => $docld,
+            'docurl'  => $docurl,
+            'docmetatitle'  => $docmetatitle,
+            'docmetadesc'  => $docmetadesc,
         );
 
         $where = array('docid'=>$docid);
@@ -155,8 +205,35 @@ class Admin extends CI_Controller {
         $model = $this->model;
 
         $hname = $this->input->post('hname');
+        $hospspec = $this->input->post('hospspec');
+        $hospcou = $this->input->post('hospcou');
+        $hospsd = $this->input->post('hospsd');
+        $hospld = $this->input->post('hospld');
+        $hospurl = $this->input->post('hospurl');
+        $hospmetatitle = $this->input->post('hospmetatitle');
+        $hospmetadesc = $this->input->post('hospmetadesc');        
+        
+        $config['upload_path']          = './uploads/hospitals/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+
+        $this->load->library('upload', $config);        
+        if ( $this->upload->do_upload('hospimg'))
+        {
+            $img_data = $this->upload->data();
+            $image_path = base_url("uploads/hospitals/".$img_data['raw_name'].$img_data['file_ext']);
+
+        }
         $data = array(
             'hname'  => $hname,
+            'hospimg'  => $image_path,
+            'hospspec'  => $hospspec,
+            'hospcou'  => $hospcou,
+            'hospsd'  => $hospsd,
+            'hospld'  => $hospld,
+            'hospurl'  => $hospurl,
+            'hospmetatitle'  => $hospmetatitle,
+            'hospmetadesc'  => $hospmetadesc,
         );
         $this->$model->insert($data,'hospitals');
         redirect('Admin/hospital');
@@ -178,10 +255,37 @@ class Admin extends CI_Controller {
 
         $hid = $this->input->post('hid');
         $hname = $this->input->post('hname');
+        $hospspec = $this->input->post('hospspec');
+        $hospcou = $this->input->post('hospcou');
+        $hospsd = $this->input->post('hospsd');
+        $hospld = $this->input->post('hospld');
+        $hospurl = $this->input->post('hospurl');
+        $hospmetatitle = $this->input->post('hospmetatitle');
+        $hospmetadesc = $this->input->post('hospmetadesc');        
+        
+        $config['upload_path']          = './uploads/hospitals/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+
+        $this->load->library('upload', $config);        
+        if ( $this->upload->do_upload('hospimg'))
+        {
+            $img_data = $this->upload->data();
+            $image_path = base_url("uploads/hospitals/".$img_data['raw_name'].$img_data['file_ext']);
+
+        }
 
         $data = array(
             'hid'  => $hid,
             'hname'  => $hname,
+            'hospimg'  => $image_path,
+            'hospspec'  => $hospspec,
+            'hospcou'  => $hospcou,
+            'hospsd'  => $hospsd,
+            'hospld'  => $hospld,
+            'hospurl'  => $hospurl,
+            'hospmetatitle'  => $hospmetatitle,
+            'hospmetadesc'  => $hospmetadesc,
         );
 
         $where = array('hid'=>$hid);
@@ -229,7 +333,7 @@ class Admin extends CI_Controller {
 
         $dname = $this->input->post('dname');
         $dlink = $this->input->post('dlink');
-        
+
         $data = array(
             'dname'  => $dname,
             'dlink'  => $dlink,
@@ -255,7 +359,7 @@ class Admin extends CI_Controller {
         $did = $this->input->post('did');
         $dname = $this->input->post('dname');
         $dlink = $this->input->post('dlink');
-        
+
         $data = array(
             'did'  => $did,
             'dname'  => $dname,
