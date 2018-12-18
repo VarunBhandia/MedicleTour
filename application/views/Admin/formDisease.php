@@ -17,6 +17,23 @@
             </div>
             <input type="text" class="form-control" id="dlink" name="dlink" placeholder="www.example.com" value="<?php if($action == 'update'){echo $row[0]->dlink;} ?>">
         </div>
+        <br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Diseases Country</span>
+            </div>
+            <select name="dcouid" id="dcouid" class="form-control">
+                <?php
+                foreach ($countries as $country)
+                {
+                ?>
+
+                <option <?php if($action == 'update'){  echo $country->couid == $row[0]->dcouid ? 'selected' : '' ; }?> value="<?php echo $country->couid; ?>"><?php echo $country->couname; ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </div>
 
         <?php if($action == 'update'){ ?> 
         <input type="hidden" value="<?php echo $row[0]->did; ?>" name="did" id="did">

@@ -22,7 +22,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Image</span>
             </div>
-            <input type="file" class="form-control" id="docimg" name="docimg" value="<?php if($action == 'update'){echo $row[0]->docimg; } ?>"  required> 
+            <input type="file" class="form-control" id="docimg" name="docimg" required> 
         </div>
         <br>
         <div class="input-group">

@@ -26,7 +26,6 @@
             <tr>
                 <td><?php echo $i; ?></td>  
                 <td><?php echo $diseases[$i]->dname; ?> </td>
-                <td><?php echo $diseases[$i]->dlink; ?> </td>
 
                 <td>
                     <a href="<?php echo base_url(); ?>Admin/editDisease/<?php echo $diseases[$i]->did; ?>" class="btn btn-success">Edit

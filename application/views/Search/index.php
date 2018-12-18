@@ -3,6 +3,6 @@
 
 <?php 
 echo '<pre>';
-print_r($disease_sp[0]->dlink);
+print_r($disease_sp);
 echo '</pre>';
 ?>

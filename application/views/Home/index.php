@@ -2,18 +2,18 @@
 <!--<img class="banner" src="<?php echo base_url(); ?>assets/img/banner.jpg">-->
 <div class="fluid-container banner" style="height: 400px;">
     <div class="container">
-        <form method="post" action="<?php echo base_url();?>Search">
+        <form method="get" action="<?php echo base_url();?>Search">
 
             <div class="row searchBar">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <select class="form-control" id="did" name="did">
+                        <select class="form-control" id="dname" name="dname">
                             <?php
                             foreach ($diseases as $disease)
                             {
                             ?>
 
-                            <option value="<?php echo $disease->did; ?>"><?php echo $disease->dname; ?></option>
+                            <option value="<?php echo $disease->dname; ?>"><?php echo $disease->dname; ?></option>
                             <?php
                             }
                             ?>

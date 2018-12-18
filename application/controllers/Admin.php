@@ -324,6 +324,7 @@ class Admin extends CI_Controller {
         $model = $this->model;
         $data['action'] = "insert";
         $data['controller'] = $this->controller;
+        $data['countries'] = $this->$model->select(array(),'countries',array(),'');
         $this->load->view('Admin/formDisease',$data);
     }
 
@@ -333,10 +334,12 @@ class Admin extends CI_Controller {
 
         $dname = $this->input->post('dname');
         $dlink = $this->input->post('dlink');
+        $dcouid = $this->input->post('dcouid');
 
         $data = array(
             'dname'  => $dname,
             'dlink'  => $dlink,
+            'dcouid'  => $dcouid,
         );
         $this->$model->insert($data,'diseases');
         redirect('Admin/disease');
@@ -348,6 +351,7 @@ class Admin extends CI_Controller {
         $model = $this->model;
         $data['action'] = "update";
         $data['controller'] = $this->controller;
+        $data['countries'] = $this->$model->select(array(),'countries',array(),'');
         $data['row'] = $this->$model->select(array(),'diseases',array('did'=>$did),'');
         $this->load->view('Admin/formDisease',$data);
     }
@@ -359,11 +363,13 @@ class Admin extends CI_Controller {
         $did = $this->input->post('did');
         $dname = $this->input->post('dname');
         $dlink = $this->input->post('dlink');
+        $dcouid = $this->input->post('dcouid');
 
         $data = array(
             'did'  => $did,
             'dname'  => $dname,
             'dlink'  => $dlink,
+            'dcouid'  => $dcouid,
         );
 
         $where = array('did'=>$did);
