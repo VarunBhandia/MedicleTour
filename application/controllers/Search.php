@@ -23,7 +23,9 @@ class Search extends CI_Controller
         $data['controller'] = $this->controller;
         $dname = $this->input->get('dname');
         $dcouid = $this->input->get('couid');
-        $data['disease_sp'] = $this->$model->select(array(),'diseases',array('dname'=>$dname,'dcouid'=>$dcouid),'');
+        $data['row'] = $this->$model->select(array(),'diseases',array('dname'=>$dname,'dcouid'=>$dcouid),'');
+        $data['hospitals'] = $this->$model->select(array(),'hospitals',array(),'');
+        $data['doctors'] = $this->$model->select(array(),'doctors',array(),'');
         $this->load->view('Search/index',$data);
     }
 

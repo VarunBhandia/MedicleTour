@@ -36,14 +36,28 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Short Description</span>
             </div>
-            <input type="text" class="form-control" id="hospsd" name="hospsd" placeholder=" " value="<?php if($action == 'update'){echo $row[0]->hospsd;} ?>">
+            <textarea name="hospsd" id="editor1">
+                <?php if($action == 'update'){echo $row[0]->hospsd;} ?>
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
         </div>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Long Description</span>
             </div>
-            <input type="text" class="form-control" id="hospld" name="hospld" placeholder=" " value="<?php if($action == 'update'){echo $row[0]->hospld;} ?>">
+            <textarea name="hospld" id="editor">
+                <?php if($action == 'update'){echo $row[0]->hospld;} ?>
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor' );
+            </script>
         </div>
         <br>
         <div class="input-group">

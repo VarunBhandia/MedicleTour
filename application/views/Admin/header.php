@@ -22,17 +22,22 @@
         <!--FaFa Icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
-        <!--        SELECT 2 JS-->
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
+        
+        <!--SELECT 2 JS-->
         <script src="<?php echo base_url('assets/js/jquery-3.2.1.min.js')?>" type='text/javascript'></script>
         <script src="<?php echo base_url('assets/select2/dist/js/select2.min.js')?>" type='text/javascript'></script>
         <link href="<?php echo base_url('assets/select2/dist/css/select2.min.css')?>" rel='stylesheet' type='text/css'>
         
+        <!--Rich Text Editor-->
+        <script src="<?php echo base_url(); ?>ckeditor/ckeditor.js"></script>
 
     </head>
     <body>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="<?php echo base_url();?>">Medicle Tour</a>
+                <a class="navbar-brand" href="<?php echo base_url().'Admin/doctor';?>">Medicle Tour</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -49,15 +54,7 @@
                             <a class="nav-link " href="<?php echo base_url();?>Admin/disease">Diseases</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <div id="google_translate_element"></div>
-                        <script type="text/javascript">
-                            function googleTranslateElementInit() {
-                                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                            }
-                        </script>
-                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                    </form>
+                <a href="<?php echo base_url(); ?>Admin/logout/" class="btn btn-info" >Logout</a>
                 </div>
             </nav>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2018 at 06:47 PM
+-- Generation Time: Jan 01, 2019 at 06:44 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -52,7 +52,11 @@ INSERT INTO `countries` (`couid`, `couname`) VALUES
 CREATE TABLE `diseases` (
   `did` int(11) NOT NULL,
   `dname` varchar(255) NOT NULL,
-  `dlink` varchar(255) NOT NULL
+  `dlink` varchar(255) NOT NULL,
+  `dcouid` varchar(50) NOT NULL,
+  `doctors` varchar(2550) NOT NULL,
+  `hosps` varchar(255) NOT NULL,
+  `disdesc` varchar(2550) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -64,6 +68,7 @@ CREATE TABLE `diseases` (
 CREATE TABLE `doctors` (
   `docid` int(11) NOT NULL,
   `docname` varchar(255) NOT NULL,
+  `docimg` varchar(255) NOT NULL,
   `docspec` varchar(255) NOT NULL,
   `docdesig` varchar(255) NOT NULL,
   `dochosp` varchar(255) NOT NULL,

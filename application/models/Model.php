@@ -11,6 +11,11 @@ class Model extends CI_Model {
 		return $this->db->select($fields)->where($condition)->order_by($orderField,$orderType)->limit($limit)->get($table)->result();
 	}
 
+//	public function select_distinct($fields,$table,$condition,$orderField,$orderType='desc',$limit=null)
+//	{
+//		return $this->db->distinct()->$this->db->select($fields)->where($condition)->order_by($orderField,$orderType)->limit($limit)->get($table)->result();
+//	}
+//
 
 	public function insert($collection,$table)
 	{

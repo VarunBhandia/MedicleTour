@@ -25,6 +25,16 @@ class Doctors extends CI_Controller
         $this->load->view('Doctors/index',$data);
     }
 
+    public function profile($docid)
+    {
+        $model = $this->model;
+        $data['action'] = "update";
+        $data['controller'] = $this->controller;
+        $data['row'] = $this->$model->select(array(),'doctors',array('docid'=>$docid),'');
+        $this->load->view('Doctors/header',$data); 
+        $this->load->view('Doctors/profile',$data);
+    }
+
 }
 ?>
 

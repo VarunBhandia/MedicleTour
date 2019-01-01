@@ -50,14 +50,28 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Short Description</span>
             </div>
-            <input type="text" class="form-control" id="docsd" name="docsd" placeholder=" " value="<?php if($action == 'update'){echo $row[0]->docsd;} ?>">
+            <textarea name="docsd" id="editor">
+                <?php if($action == 'update'){echo $row[0]->docsd;} ?>
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor' );
+            </script>
         </div>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Long Description</span>
             </div>
-            <input type="text" class="form-control" id="docld" name="docld" placeholder=" " value="<?php if($action == 'update'){echo $row[0]->docld;} ?>">
+            <textarea name="docld" id="editor1">
+                <?php if($action == 'update'){echo $row[0]->docld;} ?>
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
         </div>
         <br>
         <div class="input-group">
@@ -69,7 +83,7 @@
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">Meta Title</span>
+                <span class="input-group-text">Meta Keywords</span>
             </div>
             <input type="text" class="form-control" id="docmetatitle" name="docmetatitle" placeholder=" " value="<?php if($action == 'update'){echo $row[0]->docmetatitle;} ?>">
         </div>

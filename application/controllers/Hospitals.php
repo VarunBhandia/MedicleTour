@@ -25,5 +25,16 @@ class Hospitals extends CI_Controller
         $this->load->view('Hospitals/index',$data);
     }
 
+    public function profile($hid)
+    {
+        $model = $this->model;
+        $data['action'] = "update";
+        $data['controller'] = $this->controller;
+        $data['row'] = $this->$model->select(array(),'hospitals',array('hid'=>$hid),'');
+        $this->load->view('Hospitals/header',$data);
+        $this->load->view('Hospitals/profile',$data);
+    }
+
+
 }
 ?>
