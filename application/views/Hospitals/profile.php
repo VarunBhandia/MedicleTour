@@ -1,25 +1,29 @@
+<br>
+<br>
+
 <div class="container">
     <div class="row">
 
         <div class="col-md-3">
-            <img alt="User Pic" src="<?php echo $row[0]->hospimg; ?>" width="100%"> 
+            <img alt="<?php echo $row[0]->hname; ?>" src="<?php echo $row[0]->hospimg; ?>" width="100%"> 
         </div>
 
-
         <div class=" col-md-9"> 
-            <h2><?php echo $row[0]->hname; ?></h2>
+            <br>
 
-            <h5>Specialty : <?php echo $row[0]->hospspec; ?> </h5>
+            <h2 class="docProfile"><?php echo $row[0]->hname; ?></h2>
+            <br>
 
-            <h5>Country :<?php echo $row[0]->hospcou; ?></h5>
+            <h5 class="docDesgProfile"><?php echo $row[0]->hospspec; ?> </h5>
 
-            <b><?php echo $row[0]->hospsd; ?></b>
-            <?php echo $row[0]->hospld; ?>
+            <h5 class="docSdProfile"><?php echo $row[0]->hospcou; ?></h5>
 
-            <p>Link : <?php echo $row[0]->hospurl; ?></p>
 
+            <b ><p class="docSdProfile"><?php echo $row[0]->hospsd; ?></p></b>
+            <p class="docSdProfile"><?php echo $row[0]->hospld; ?></p>
         </div>
     </div>
 </div>
-
+<br>
+<br>
 <?php $this->load->view('Include/footer'); ?>

@@ -453,8 +453,11 @@ class Admin extends CI_Controller {
         $dlink = $this->input->post('dlink');
         $dcouid = $this->input->post('dcouid');
         $disdesc = $this->input->post('disdesc');
-        $doctors = count($this->input->post('doctors')) > 0 ? implode(",",$this->input->post('doctors')) : $this->input->post('doctors');;
-        $hosps = count($this->input->post('hosps')) > 0 ? implode(",",$this->input->post('hosps')) : $this->input->post('hosps');;
+        $doctors = count($this->input->post('doctors')) > 0 ? implode(",",$this->input->post('doctors')) : $this->input->post('doctors');
+        $hosps = count($this->input->post('hosps')) > 0 ? implode(",",$this->input->post('hosps')) : $this->input->post('hosps');
+
+        if($doctors == NULL){ $doctors= '';}
+        if($hosps == NULL){ $hosps= '';}
 
         $data = array(
             'dname'  => $dname,
@@ -464,6 +467,10 @@ class Admin extends CI_Controller {
             'hosps'  => $hosps,
             'disdesc'  => $disdesc,
         );
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+
         $this->$model->insert($data,'diseases');
         redirect('Admin/disease');
     }
@@ -506,7 +513,11 @@ class Admin extends CI_Controller {
         $dlink = $this->input->post('dlink');
         $dcouid = $this->input->post('dcouid');
         $disdesc = $this->input->post('disdesc');
-        $doctors = count($this->input->post('doctors')) > 0 ? implode(",",$this->input->post('doctors')) : $this->input->post('doctors');;
+        $doctors = count($this->input->post('doctors')) > 0 ? implode(",",$this->input->post('doctors')) : $this->input->post('doctors');
+        $hosps = count($this->input->post('hosps')) > 0 ? implode(",",$this->input->post('hosps')) : $this->input->post('hosps');
+
+        if($doctors == NULL){ $doctors= '';}
+        if($hosps == NULL){ $hosps= '';}
 
         $data = array(
             'did'  => $did,
@@ -547,6 +558,22 @@ class Admin extends CI_Controller {
      }  
     }
 
+    function enquiry()
+    {  
+        if($this->session->userdata('username') != '')  
+        {
+            $model = $this->model;
+            $username = $this->session->userdata('username');
+            $data['enquiries'] = $this->$model->select(array(),'enquiry',array(),'');
+
+            $this->load->view("Admin/enquiry",$data); 
+        }  
+        else  
+        {  
+            $this->session->set_flashdata('error', 'Invalid Username and Password');  
+            redirect(base_url() . 'Admin/login');  
+        }  
+    } 
 
     function logout()  
     {  

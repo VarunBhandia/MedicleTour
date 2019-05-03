@@ -51,6 +51,7 @@
         <br>
         <label>Doctors</label> 
 
+<br>
         <?php 
         if($action == 'update')
         {
@@ -64,7 +65,7 @@
         <div class="row">
             <?php foreach($doctors as $doctor){ ?>
 
-            <div class="col-md-1">
+            <div class="col-md-3">
                 <input type="checkbox" 
                        <?php if($action == 'update')
 { 
@@ -76,17 +77,19 @@
     }
 } 
                        ?>  
-                       value="<?php echo $doctor->docid; ?>" name="doctors[]"><p><?php echo $doctor->docname; ?></p>
+                       value="<?php echo $doctor->docid; ?>" name="doctors[]"><?php echo $doctor->docname; ?>
             </div>
             <?php } ?>
         </div>
-
+<br>
+<br>
         <label>Hospitals</label> 
+<br>
 
         <div class="row">
             <?php foreach($hosps as $hosp){ ?>
 
-            <div class="col-md-1">
+            <div class="col-md-3">
                 <input type="checkbox" 
                        <?php if($action == 'update')
 { 

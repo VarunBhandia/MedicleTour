@@ -15,6 +15,7 @@ class Search extends CI_Controller
         $this->load->model('Model');
         $this->model = 'Model';
         date_default_timezone_set('Asia/Kolkata');
+        $this->load->view('Include/enquiry');
     }
 
     public function index()
@@ -26,6 +27,7 @@ class Search extends CI_Controller
         $data['row'] = $this->$model->select(array(),'diseases',array('dname'=>$dname,'dcouid'=>$dcouid),'');
         $data['hospitals'] = $this->$model->select(array(),'hospitals',array(),'');
         $data['doctors'] = $this->$model->select(array(),'doctors',array(),'');
+        $data['countries'] = $this->$model->select(array(),'countries',array(),'');
         $this->load->view('Search/index',$data);
     }
 

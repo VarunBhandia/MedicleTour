@@ -15,6 +15,7 @@ class Doctors extends CI_Controller
         $this->load->model('Model');
         $this->model = 'Model';
         date_default_timezone_set('Asia/Kolkata');
+        $this->load->view('Include/enquiry');
     }
 
     public function index()
